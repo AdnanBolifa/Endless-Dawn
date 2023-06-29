@@ -24,11 +24,13 @@ public struct Card {
 public class CardBuilder : MonoBehaviour {
     public List<Card> allCard;
     string jsonString;
+
     private void Start() {
         allCard = new List<Card>();
 
         string fileName = "cards";
         TextAsset jsonFile = Resources.Load<TextAsset>(fileName);
+
         if (jsonFile != null) {
             jsonString = jsonFile.text;
             // Process the JSON data as needed
@@ -40,6 +42,7 @@ public class CardBuilder : MonoBehaviour {
         LoadCardData();
         List<Card> excludedCards = new List<Card>();
 
+        // Add some cards to the excludedCards list (optional)
         excludedCards.Add(allCard[0]);
         excludedCards.Add(allCard[2]);
         excludedCards.Add(allCard[4]);
@@ -47,18 +50,18 @@ public class CardBuilder : MonoBehaviour {
 
         ShuffleList(allCard, excludedCards);
 
-        // Pick cards until all have been picked
+        // Display the name and tag of each card in allCard list
         foreach (Card card in allCard) {
             Debug.Log(card.name + " - " + card.tag);
         }
 
         // Optional: Display the first card's name in the storyline text
         StoryLineManagment storyLine = FindAnyObjectByType<StoryLineManagment>();
-        storyLine.text.text = allCard[0].name;
+        storyLine.story.text = allCard[0].name;
     }
 
     private void LoadCardData() {
-        // Read the card data file
+        // Read the card data from the JSON string
         string jsonData = jsonString;
         if (jsonData == null) {
             Debug.Log("Could not find JSON card");
@@ -116,10 +119,6 @@ public class CardBuilder : MonoBehaviour {
             }
         }
     }
-
-
-
-
 
     // Other methods and fields...
 

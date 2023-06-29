@@ -828,7 +828,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1192076785}
+  m_Father: {fileID: 959965754}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1650,6 +1650,7 @@ RectTransform:
   - {fileID: 121308233}
   - {fileID: 1824843905}
   - {fileID: 1919519337}
+  - {fileID: 246832874}
   m_Father: {fileID: 1052402614}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2085,7 +2086,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 246832874}
   - {fileID: 144554968}
   - {fileID: 1049225396}
   - {fileID: 1345059611}
@@ -2998,7 +2998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ddb0df05a482f42aa3d94979eb7185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1287004494}
+  story: {fileID: 1287004494}
   count: 0
 --- !u!114 &1647303211
 MonoBehaviour:

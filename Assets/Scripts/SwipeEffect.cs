@@ -20,13 +20,16 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     private Image fadding;
     private CardBuilder cardBuilder;
     private StoryLineManagment scenatrio;
+    private StoryLineManagment storyManagement;
     private HealthBarManager healthBarManager;
 
-    public void Start()
+    private void Start()
     {
+        storyManagement = FindAnyObjectByType<StoryLineManagment>(); // Find and assign the StoryLineManagment script
         healthBarManager = FindAnyObjectByType<HealthBarManager>();
         cardBuilder = FindAnyObjectByType<CardBuilder>();
         fadding = GetComponent<Image>();
+
         fadding.color = Color.white;
 
         textTest = GetComponentInChildren<Text>();
@@ -81,8 +84,6 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         fadding.color = Color.HSVToRGB(0, 0, faddingValue);
     }
 
-
-
     public void OnBeginDrag(PointerEventData eventData) {
         // Store the initial position of the object before dragging
         initialPosition = transform.localPosition;
@@ -114,7 +115,6 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         fadding.color = Color.HSVToRGB(0, 0, 1f);
         textTest.text = "";
     }
-    
     
     /**
     * Coroutine for moving the card and fading out its image.
@@ -196,7 +196,8 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         if (healthBarManager.isDead == false)
             scenatrio.ChangeStoryLine();
         else {
-            scenatrio.text.text = "DEAD!";
+            scenatrio.story.text = "DEAD!";
+            Debug.LogWarning("DEAD!");
         }
     }
 }
