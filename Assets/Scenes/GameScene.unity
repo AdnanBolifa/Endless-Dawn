@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97e59c1986514bb4f90eab7558ac30f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d46af242edbbac4fb23063f637b50f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2056,6 +2056,9 @@ MonoBehaviour:
   - {fileID: 1988928398004498284, guid: 333e4a0d5f4d1364d9e7fca0c121d185, type: 3}
   - {fileID: 1988928398004498284, guid: 4fc199cc1d359c8439008351b93ccab0, type: 3}
   - {fileID: 1988928398004498284, guid: 6e826683fefbe6f43b3bbb147582e11f, type: 3}
+  deathCards:
+  - {fileID: 1988928398004498284, guid: 4ce8c1347108ecc47a45c741089341c5, type: 3}
+  - {fileID: 1988928398004498284, guid: 308c4e70098668041a6d4e28f9cd2895, type: 3}
 --- !u!1 &1192076784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,7 +2379,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434943830}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 61d875f7cd154144d874a344a7e0fa5f, type: 3}
@@ -2748,6 +2751,7 @@ MonoBehaviour:
   powerSlider: {fileID: 165424984}
   foodSlider: {fileID: 104911754}
   isDead: 0
+  deathCard: {fileID: 0}
 --- !u!224 &1567541343 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4423532455019324054, guid: 2f0fdac135a98444f94a4af1f33c3348, type: 3}
@@ -3017,6 +3021,7 @@ MonoBehaviour:
   powerSlider: {fileID: 165424984}
   foodSlider: {fileID: 104911754}
   isDead: 0
+  deathCard: {fileID: 0}
 --- !u!114 &1647303212
 MonoBehaviour:
   m_ObjectHideFlags: 0

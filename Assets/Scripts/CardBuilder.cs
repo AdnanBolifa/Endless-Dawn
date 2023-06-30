@@ -51,9 +51,9 @@ public class CardBuilder : MonoBehaviour {
         ShuffleList(allCard, excludedCards);
 
         // Display the name and tag of each card in allCard list
-        foreach (Card card in allCard) {
+        /*foreach (Card card in allCard) {
             Debug.Log(card.name + " - " + card.tag);
-        }
+        }*/
 
         // Optional: Display the first card's name in the storyline text
         StoryLineManagment storyLine = FindAnyObjectByType<StoryLineManagment>();
@@ -81,8 +81,9 @@ public class CardBuilder : MonoBehaviour {
             allCard.Add(newCard);
 
             // Optional: Display the added card's details
-            Debug.Log("Added new card: " + newCard.name);
+            //Debug.Log("Added new card: " + newCard.name);
         }
+        Debug.Log(cardDataList.Count + ": Cards has been added.");
     }
 
     private List<CardEffect> ConvertCardEffects(CardEffectData[] effectDataArray) {

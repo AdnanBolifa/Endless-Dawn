@@ -43,7 +43,7 @@ public class HealthBarManager : MonoBehaviour
 
     // Variable to track if the character is dead.
     public bool isDead = false;
-
+    public Slider deathCard;
     // Method to apply damage to a slider.
     void ApplyDamage(Slider slider, int damage) {
         // Increase the value of the slider by the damage amount.
@@ -53,6 +53,7 @@ public class HealthBarManager : MonoBehaviour
         if (slider.value <= 2) {
             // Log a warning indicating a lack of the specific slider type.
             Debug.LogWarning("lack of " + slider.name);
+            deathCard = slider;
 
             // Set the isDead flag to true.
             isDead = true;
