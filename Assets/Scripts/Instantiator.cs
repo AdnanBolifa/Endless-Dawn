@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Instantiator : MonoBehaviour
@@ -15,11 +16,9 @@ public class Instantiator : MonoBehaviour
 
     private GameObject newCard; // Reference to the newly instantiated card GameObject
 
-    private StoryLineManagment storyManagement; // Reference to the StoryLineManagment script
     private HealthBarManager health; // Reference to the HealthBarManager script
 
     private void Start() {
-        storyManagement = FindAnyObjectByType<StoryLineManagment>(); // Find and assign the StoryLineManagment script
         health = FindAnyObjectByType<HealthBarManager>(); // Find and assign the HealthBarManager script
     }
 
@@ -49,7 +48,7 @@ public class Instantiator : MonoBehaviour
         newText.transform.SetParent(newCard.transform); // Set the new text as a child of the new card
     }
 
-    private int deadCardCount = 0;
+    public int deadCardCount = 0;
     void Update() {
         // Check if there is only one child in the hierarchy, the story hasn't ended, and the player is not dead
         if (transform.childCount < 2 && !health.isDead)
@@ -57,6 +56,9 @@ public class Instantiator : MonoBehaviour
         else if(health.isDead && deadCardCount < 1) {
             deadCardCount++;
             InstantiateDeathCard();
+        }
+        if (transform.childCount == 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

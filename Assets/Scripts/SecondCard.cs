@@ -5,14 +5,12 @@ public class SecondCard : MonoBehaviour
 {
     private SwipeEffect swipeEffect; // Reference to the SwipeEffect script
     private GameObject firstCard; // Reference to the first card GameObject
-    private HealthBarManager health;
     private Image image; // Reference to the Image component of this GameObject
 
     // Start is called before the first frame update
     void Start() {
         
         swipeEffect = FindAnyObjectByType<SwipeEffect>(); // Find and assign the SwipeEffect script
-        health = FindAnyObjectByType<HealthBarManager>();
         image = GetComponent<Image>(); // Get the Image component attached to this GameObject
 
         image.color = Color.black; // Set the color of the Image to black

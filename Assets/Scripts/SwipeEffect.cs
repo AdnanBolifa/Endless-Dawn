@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
-{
+public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
     public int rotationDegree = 15;
     public float dragLimit = 0.2f;
     public float faddingValue = 0.7f;
@@ -23,8 +22,7 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     private StoryLineManagment storyManagement;
     private HealthBarManager healthBarManager;
 
-    private void Start()
-    {
+    private void Start() {
         storyManagement = FindAnyObjectByType<StoryLineManagment>(); // Find and assign the StoryLineManagment script
         healthBarManager = FindAnyObjectByType<HealthBarManager>();
         cardBuilder = FindAnyObjectByType<CardBuilder>();
@@ -54,16 +52,13 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         // Perform the necessary handling for the choices after the drag
         ChoicesHandler();
     }
-
-    private string[] status = new string[10];
-
     private void ChoicesHandler() {
         int count = 0;
         bool isRightSwipe = transform.localPosition.x > initialPosition.x;
         bool hasMoreCards = scenatrio.count < cardBuilder.allCard.Count;
         Card currentCard = cardBuilder.allCard[scenatrio.count];
 
-        if (hasMoreCards) {
+        if (hasMoreCards && !healthBarManager.isDead) {
             // Determine the swipe effects based on the swipe direction
             var swipeEffects = isRightSwipe ? currentCard.rightSwipeEffects : currentCard.leftSwipeEffects;
 
@@ -75,20 +70,15 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
                 // Store the effect of the current card in the status array and increment the count
                 status[count++] = card.effect;
             }
-        } else {
-            // If there are no more cards to display, indicate the end
-            textTest.text = "End..";
         }
 
         // Set the fading color using the specified faddingValue
         fadding.color = Color.HSVToRGB(0, 0, faddingValue);
     }
-
     public void OnBeginDrag(PointerEventData eventData) {
         // Store the initial position of the object before dragging
         initialPosition = transform.localPosition;
     }
-
     public void OnEndDrag(PointerEventData eventData) {
         // Calculate the distance moved during the drag
         distanceMoved = Mathf.Abs(transform.localPosition.x - initialPosition.x);
@@ -113,9 +103,11 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         transform.localPosition = initialPosition;
         transform.localEulerAngles = Vector3.zero;
         fadding.color = Color.HSVToRGB(0, 0, 1f);
+        if (healthBarManager.isDead) {
+            return;
+        }
         textTest.text = "";
     }
-    
     /**
     * Coroutine for moving the card and fading out its image.
     */
@@ -149,48 +141,48 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         Destroy(gameObject);
     }
 
-
+    private string[] status = new string[10];
     private int damage = 20;
     private void StatusChanger(string[] status) {
 
-         const string SHIELD_POS = "Shield+";
-         const string FOOD_POS = "Food+";
-         const string POWER_POS = "Power+";
-         const string MEDIC_POS = "Medic+";
-         const string SHIELD_NEG = "Shield-";
-         const string FOOD_NEG = "Food-";
-         const string POWER_NEG = "Power-";
-         const string MEDIC_NEG = "Medic-";
+        const string SHIELD_POS = "Shield+";
+        const string FOOD_POS = "Food+";
+        const string POWER_POS = "Power+";
+        const string MEDIC_POS = "Medic+";
+        const string SHIELD_NEG = "Shield-";
+        const string FOOD_NEG = "Food-";
+        const string POWER_NEG = "Power-";
+        const string MEDIC_NEG = "Medic-";
 
         for (int i = 0; i < status.Length; i++) {
-            
-                switch (status[i]) {
-                    case SHIELD_POS:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Shield, damage);
-                        break;
-                    case FOOD_POS:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Food, damage);
-                        break;
-                    case POWER_POS:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Power, damage);
-                        break;
-                    case MEDIC_POS:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Medic, damage);
-                        break;
-                    case SHIELD_NEG:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Shield, -damage);
-                        break;
-                    case FOOD_NEG:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Food, -damage);
-                        break;
-                    case POWER_NEG:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Power, -damage);
-                        break;
-                    case MEDIC_NEG:
-                        healthBarManager.ModifySlider(HealthBarManager.SliderType.Medic, -damage);
-                        break;
-                }
+
+            switch (status[i]) {
+                case SHIELD_POS:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Shield, damage);
+                    break;
+                case FOOD_POS:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Food, damage);
+                    break;
+                case POWER_POS:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Power, damage);
+                    break;
+                case MEDIC_POS:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Medic, damage);
+                    break;
+                case SHIELD_NEG:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Shield, -damage);
+                    break;
+                case FOOD_NEG:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Food, -damage);
+                    break;
+                case POWER_NEG:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Power, -damage);
+                    break;
+                case MEDIC_NEG:
+                    healthBarManager.ModifySlider(HealthBarManager.SliderType.Medic, -damage);
+                    break;
             }
+        }
         if (healthBarManager == null)
             return;
         if (healthBarManager.isDead == false)
@@ -200,4 +192,5 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
             Debug.LogWarning("DEAD!");
         }
     }
+
 }

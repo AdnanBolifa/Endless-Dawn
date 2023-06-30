@@ -46,14 +46,14 @@ public class CardBuilder : MonoBehaviour {
         excludedCards.Add(allCard[0]);
         excludedCards.Add(allCard[2]);
         excludedCards.Add(allCard[4]);
-        excludedCards.Add(allCard[6]);
+        excludedCards.Add(allCard[14]);
 
         ShuffleList(allCard, excludedCards);
 
         // Display the name and tag of each card in allCard list
-        /*foreach (Card card in allCard) {
+        foreach (Card card in allCard) {
             Debug.Log(card.name + " - " + card.tag);
-        }*/
+        }
 
         // Optional: Display the first card's name in the storyline text
         StoryLineManagment storyLine = FindAnyObjectByType<StoryLineManagment>();
@@ -103,23 +103,42 @@ public class CardBuilder : MonoBehaviour {
     private void ShuffleList(List<Card> list, List<Card> excludedCards = null) {
         System.Random random = new System.Random();
         int n = list.Count;
-        int groupSize = 5;
+        int groupSize = 10;
 
         // Shuffle each consecutive group of 10 elements separately
         for (int groupIndex = 0; groupIndex < n / groupSize; groupIndex++) {
             int startIndex = groupIndex * groupSize;
             int endIndex = Mathf.Min(startIndex + groupSize, n);
 
-            for (int i = startIndex; i < endIndex - 1; i++) {
+            List<Card> cardsToShuffle = new List<Card>();
+
+            // Collect the cards in the group that are not excluded
+            for (int i = startIndex; i < endIndex; i++) {
                 if (excludedCards == null || !excludedCards.Contains(list[i])) {
-                    int j = random.Next(i, endIndex);
-                    Card temp = list[i];
-                    list[i] = list[j];
-                    list[j] = temp;
+                    cardsToShuffle.Add(list[i]);
+                }
+            }
+
+            // Shuffle the collected cards
+            int cardsToShuffleCount = cardsToShuffle.Count;
+            for (int i = 0; i < cardsToShuffleCount; i++) {
+                int j = random.Next(i, cardsToShuffleCount);
+                Card temp = cardsToShuffle[i];
+                cardsToShuffle[i] = cardsToShuffle[j];
+                cardsToShuffle[j] = temp;
+            }
+
+            // Assign the shuffled cards back to the original list
+            for (int i = startIndex, shuffledIndex = 0; i < endIndex; i++) {
+                if (excludedCards == null || !excludedCards.Contains(list[i])) {
+                    list[i] = cardsToShuffle[shuffledIndex];
+                    shuffledIndex++;
                 }
             }
         }
     }
+
+
 
     // Other methods and fields...
 

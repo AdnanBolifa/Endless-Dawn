@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
@@ -89,6 +90,9 @@ public class Settings : MonoBehaviour
         if (menu != null) {
             menu.SetActive(false);
         }
+    }
+    public void Restart(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void PauseGame() {
         Time.timeScale = 0f;
