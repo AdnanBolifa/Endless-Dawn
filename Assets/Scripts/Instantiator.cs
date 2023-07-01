@@ -15,27 +15,41 @@ public class Instantiator : MonoBehaviour
     private GameObject[] deathCards; // Array of available Death cards GameObjects
 
     private GameObject newCard; // Reference to the newly instantiated card GameObject
-
+    private StoryLineManagment storyLine;
     private HealthBarManager health; // Reference to the HealthBarManager script
 
     private void Start() {
         health = FindAnyObjectByType<HealthBarManager>(); // Find and assign the HealthBarManager script
+        storyLine = FindAnyObjectByType<StoryLineManagment>();
     }
 
+    private static int previousValue = -1;  // Initialize previousValue to a value that is not a valid index
     public void InstantiateCard() {
         int randomValue;
+
         do {
             randomValue = Mathf.RoundToInt(Random.Range(0, cards.Length)); // Generate a random index for the cards array
-        } while (newCard != null && cards[randomValue] == newCard.gameObject);
+            Debug.Log("Generated Random Index: " + randomValue); // Debug print statement
+        } while (randomValue == previousValue);
+
+        previousValue = randomValue; // Store the current randomValue for the next iteration
+
+
+        // The currentValue will not be the same as the previousValue in the next iteration
+
+
 
         newCard = Instantiate(cards[randomValue], transform, false); // Instantiate a new card GameObject using the randomly selected prefab
         newCard.transform.SetAsFirstSibling(); // Set the new card as the first child in the hierarchy
         InstantiateText(); // Instantiate the text for the new card
+
+        Debug.Log("New Card Name: " + newCard.name); // Debug print statement
     }
+
 
     private void InstantiateDeathCard() {
         int bar;
-        if (health.deathCard.name == "HealthBarFoodd") {
+        if (health.deathCard.name == "HealthBarFood") {
             bar = 0;
         }
         else 
@@ -51,7 +65,7 @@ public class Instantiator : MonoBehaviour
     public int deadCardCount = 0;
     void Update() {
         // Check if there is only one child in the hierarchy, the story hasn't ended, and the player is not dead
-        if (transform.childCount < 2 && !health.isDead)
+        if (transform.childCount < 2 && !health.isDead && storyLine.story.text != "The End")
             InstantiateCard(); // Instantiate a new card 
         else if(health.isDead && deadCardCount < 1) {
             deadCardCount++;

@@ -56,9 +56,9 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         int count = 0;
         bool isRightSwipe = transform.localPosition.x > initialPosition.x;
         bool hasMoreCards = scenatrio.count < cardBuilder.allCard.Count;
-        Card currentCard = cardBuilder.allCard[scenatrio.count];
 
         if (hasMoreCards && !healthBarManager.isDead) {
+             Card currentCard = cardBuilder.allCard[scenatrio.count];
             // Determine the swipe effects based on the swipe direction
             var swipeEffects = isRightSwipe ? currentCard.rightSwipeEffects : currentCard.leftSwipeEffects;
 
