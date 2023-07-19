@@ -4,18 +4,23 @@ using System.IO;
 
 public struct CardEffect {
     public string effect;
-    public string action;
 }
 
 public struct Card {
     public string name;
     public string tag;
+    public string leftAction;
+    public string rightAction;
+    public int id;
     public List<CardEffect> leftSwipeEffects;
     public List<CardEffect> rightSwipeEffects;
 
-    public Card(string name, string tag) {
+    public Card(string name, string tag, int id, string leftAction, string rightAction) {
         this.name = name;
         this.tag = tag;
+        this.id = id;
+        this.leftAction = leftAction;
+        this.rightAction = rightAction;
         leftSwipeEffects = new List<CardEffect>();
         rightSwipeEffects = new List<CardEffect>();
     }
@@ -46,13 +51,13 @@ public class CardBuilder : MonoBehaviour {
         excludedCards.Add(allCard[0]);
         excludedCards.Add(allCard[2]);
         excludedCards.Add(allCard[4]);
-        excludedCards.Add(allCard[14]);
+        //excludedCards.Add(allCard[14]);
 
         ShuffleList(allCard, excludedCards);
 
         // Display the name and tag of each card in allCard list
         foreach (Card card in allCard) {
-            Debug.Log(card.name + " - " + card.tag);
+            Debug.Log(card.id +": "+card.name + " - " + card.tag);
         }
 
         // Optional: Display the first card's name in the storyline text
@@ -75,7 +80,7 @@ public class CardBuilder : MonoBehaviour {
 
         // Convert the card data to Card structs and add them to the allCard list
         foreach (CardData cardData in cardDataList) {
-            Card newCard = new Card(cardData.name, cardData.tag);
+            Card newCard = new Card(cardData.name, cardData.tag, cardData.id, cardData.leftAction, cardData.rightAction);
             newCard.leftSwipeEffects = ConvertCardEffects(cardData.leftSwipeEffects);
             newCard.rightSwipeEffects = ConvertCardEffects(cardData.rightSwipeEffects);
             allCard.Add(newCard);
@@ -93,7 +98,6 @@ public class CardBuilder : MonoBehaviour {
         foreach (CardEffectData effectData in effectDataArray) {
             CardEffect effect = new CardEffect();
             effect.effect = effectData.effect;
-            effect.action = effectData.action;
             effects.Add(effect);
         }
 
@@ -147,6 +151,9 @@ public class CardBuilder : MonoBehaviour {
     private class CardData {
         public string name;
         public string tag;
+        public int id;
+        public string leftAction;
+        public string rightAction;
         public CardEffectData[] leftSwipeEffects;
         public CardEffectData[] rightSwipeEffects;
     }

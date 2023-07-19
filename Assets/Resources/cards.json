@@ -3,359 +3,338 @@
     {
       "name": "Help a group of survivors who are trapped by a horde of infected.",
       "tag": "Hero",
+      "leftAction": "Help!",
+      "rightAction": "Ignore",
+      "id": 1,
       "leftSwipeEffects": [
         {
-          "effect": "Shield+",
-          "action": "Help!"
+          "effect": "Shield+"
         },
         {
-          "effect": "Medic-",
-          "action": "Help!"
+          "effect": "Medic-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "Power-",
-          "action": "Ignore!"
+          "effect": "Power-"
         }
       ]
     },
     {
       "name": "Explore a nearby abandoned hospital in search of medical supplies.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 2,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Scavenge for food and resources in a heavily infested supermarket.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 3,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
-        },
-        {
-          "effect": "Shield-",
-          "action": "Enter!"
-        },
-        {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Medic+"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Investigate a mysterious distress call coming from a nearby neighborhood.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 4,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Join a small band of mercenaries who offer protection in exchange for supplies.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 5,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Search for a rumored safe haven outside the city limits.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 6,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Follow a trail of clues leading to a potential source of the outbreak.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 7,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Form an alliance with a group of skilled scavengers to increase chances of survival.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 8,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Retreat to a secluded hideout and focus on self-preservation.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 9,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Volunteer for a risky mission to rescue stranded survivors from an infected-infested area.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 10,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Investigate a mysterious underground facility to uncover the truth behind the outbreak.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 11,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Join forces with a secretive resistance group plotting to overthrow the government.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 12,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Rescue a scientist who claims to have information about a potential cure.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 13,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Infiltrate a high-security government research facility to retrieve classified documents.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 14,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     },
     {
       "name": "Seek out a legendary survivor known for their knowledge of the infected's origins.",
       "tag": "Explor",
+      "leftAction": "Enter!",
+      "rightAction": "Leave",
+      "id": 15,
       "leftSwipeEffects": [
         {
-          "effect": "Medic+",
-          "action": "Enter!"
+          "effect": "Medic+"
         },
         {
-          "effect": "Shield-",
-          "action": "Enter!"
+          "effect": "Shield-"
         },
         {
-          "effect": "Food-",
-          "action": "Enter!"
+          "effect": "Food-"
         }
       ],
       "rightSwipeEffects": [
         {
-          "effect": "null",
-          "action": "Leave"
+          "effect": "null"
         }
       ]
     }
-
   ]
 }

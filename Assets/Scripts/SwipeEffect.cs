@@ -61,11 +61,17 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
              Card currentCard = cardBuilder.allCard[scenatrio.count];
             // Determine the swipe effects based on the swipe direction
             var swipeEffects = isRightSwipe ? currentCard.rightSwipeEffects : currentCard.leftSwipeEffects;
-
+            string action;
+            if (isRightSwipe) {
+                action = currentCard.rightAction;
+            }
+            else {
+                action = currentCard.leftAction;
+            }
             // Iterate through the swipe effects of the current card
             foreach (var card in swipeEffects) {
                 // Set the displayed action text to the action of the current card
-                textTest.text = card.action;
+                textTest.text = action;
 
                 // Store the effect of the current card in the status array and increment the count
                 status[count++] = card.effect;

@@ -29,7 +29,6 @@ public class Instantiator : MonoBehaviour
 
         do {
             randomValue = Mathf.RoundToInt(Random.Range(0, cards.Length)); // Generate a random index for the cards array
-            Debug.Log("Generated Random Index: " + randomValue); // Debug print statement
         } while (randomValue == previousValue);
 
         previousValue = randomValue; // Store the current randomValue for the next iteration
